@@ -1,10 +1,10 @@
-__project__ package
+iteratedc package
 ==============
 
 Module contents
 ---------------
 
-.. automodule:: __project__
+.. automodule:: iteratedc
    :members:
    :undoc-members:
    :show-inheritance:

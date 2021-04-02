@@ -1,4 +1,12 @@
 #!/usr/bin/env python
+#
+# Copyright (c) 2021 Carsten Igel.
+#
+# This file is part of nt2dc
+# (see https://github.com/carstencodes/nt2dc).
+#
+# License: 3-clause BSD, see https://opensource.org/licenses/BSD-3-Clause
+#
 
 from setuptools import setup, find_packages
 
@@ -9,16 +17,16 @@ with open("README.md", "r") as read_me_file:
     long_description = read_me_file.read()
 
 setup(
-    name="###NAME###",
+    name="iteratedc",
     version=__VERSION__,
-    license="###LIC###",
+    license="BSD 3-Clause",
     author="Carsten Igel",
     author_email="cig@bite-that-bit.de",
-    description="###DESCRIPTION###",
+    description="Iterator for data classes",
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=find_packages(where="src"),
-    url="https://github.com/carstencodes/###REPO###",
+    url="https://github.com/carstencodes/iteratedc",
     install_requires=[],
     package_dir={"": "src"},
     keywords="",
