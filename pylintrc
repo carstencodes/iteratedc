@@ -140,7 +140,8 @@ disable=print-statement,
         deprecated-sys-function,
         exception-escape,
         comprehension-escape,
-        C0330, C0326 # compatibility with black
+        C0330, C0326 # compatibility with black,
+        R0903 # iterators are protocol implementations
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
