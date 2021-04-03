@@ -7,6 +7,11 @@
 # License: 3-clause BSD, see https://opensource.org/licenses/BSD-3-Clause
 #
 
+"""Contains all functions and classes required for iterating over a hierarchy
+   of data classes. The data class will be transformed to a tree, whose nodes
+   will be iterated.
+"""
+
 from dataclasses import field, dataclass
 from abc import ABC, abstractmethod
 from typing import (
@@ -49,11 +54,23 @@ _DataClassNodeType = Union[_RootNode, DataClassType]
 
 
 class IterationMode(Enum):
+    """Represents the mode of operation to use for tree traversal.
+    """
     BreadthFirstSearch = auto()
+    """Use BFS tree iteration
+    """
     PreOrderDepthFirstSearch = auto()
+    """Use Pre-Order DFS tree iteration.
+    """
     PostOrderDepthFirstSearch = auto()
+    """Use Post-Order DFS tree iteration.
+    """
     ReversePreOrderDepthFirstSearch = auto()
+    """Use reverse Pre-Order DFS tree iteration.
+    """
     ReversePostOrderDepthFirstSearch = auto()
+    """Use reverse Post-Order DFS tree iteration.
+    """
 
 
 OrderedNodeCollection = Deque[Tuple[Node, Deque[Node]]]
@@ -188,6 +205,8 @@ class _PreOrderDepthFirstDataClassIterator(_DataClassIteratorBase):
 
 
 class DataClassIterable(Generic[DataClassType]):
+    """Class transforming a dataclass into an iterable of NodeElements
+    """
     def __init__(self, mode: IterationMode, *args: DataClassType) -> None:
         super().__init__()
 
