@@ -12,7 +12,8 @@ import unittest
 
 
 class BasicTest(unittest.TestCase):
-    pass
+    def test_sample(self) -> None:
+        self.assertEqual(True, True)
 
 if __name__ == "__main__":
     unittest.main()
