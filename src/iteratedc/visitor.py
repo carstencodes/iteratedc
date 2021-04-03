@@ -42,6 +42,9 @@ class VisitorBase(ABC):
         """
 
 
+_NodeVisitorType: Type = type(None)
+
+
 class NodeElement(VisitableElement):
     """Concrete implementation of a visitable element for node elements.
     """
@@ -70,9 +73,9 @@ class NodeElement(VisitableElement):
         return tuple(self.__parent_nodes)
 
     def accept_visitor(self, visitor: VisitorBase) -> None:
-        _node_visitor_type: Type = "NodeVisitor"
-        if isinstance(visitor, _node_visitor_type):
-            node_visitor: "NodeVisitor" = cast(_node_visitor_type, visitor)
+        node_visitor_type: Type = globals()['_NodeVisitorType']
+        if isinstance(visitor, node_visitor_type):
+            node_visitor: "NodeVisitor" = cast(node_visitor_type, visitor)
             node_visitor.visit_node_element(self)
 
 
@@ -96,3 +99,5 @@ class NodeVisitor(VisitorBase, ABC):
         Returns:
             Node: The current node that has been visited.
         """
+
+_NodeVisitorType = type(NodeVisitor)
