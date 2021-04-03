@@ -7,10 +7,11 @@
 # License: 3-clause BSD, see https://opensource.org/licenses/BSD-3-Clause
 #
 
-import iteratedc
 import unittest
-
 from dataclasses import dataclass, field
+
+import iteratedc
+
 
 @dataclass
 class Simple:
