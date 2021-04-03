@@ -9,8 +9,12 @@ You can choose between four operation modes:
   * Pre-Order
   * In-Order
   * Post-Order
+  * Reverse Pre-Order
+  * Reverse Post-Order
 
-The result will not be the current node but a way point carrying the current node.
+The result will not be the current node but a NodeElement carrying the current node.
+
+These `NodeElement`s accept visitors according to the visitor pattern.
 
 ## Licensing
 
