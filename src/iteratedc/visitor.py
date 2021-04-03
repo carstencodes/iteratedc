@@ -19,6 +19,7 @@ from .tree import Node
 class VisitableElement(ABC):
     """Basic implementation marking an instance as visitable.
     """
+
     @abstractmethod
     def accept_visitor(self, visitor: "VisitorBase") -> None:
         """Accepts a visitor instance for this instance.
@@ -31,6 +32,7 @@ class VisitableElement(ABC):
 class VisitorBase(ABC):
     """Basic implementation of a visitor used to visit elements.
     """
+
     @abstractmethod
     def visit(self, visitable: VisitableElement) -> None:
         """Performs a visit on the specified visitable element.
@@ -43,6 +45,7 @@ class VisitorBase(ABC):
 class NodeElement(VisitableElement):
     """Concrete implementation of a visitable element for node elements.
     """
+
     def __init__(self, node: Node, parent_nodes: Iterable[Node]) -> None:
         super().__init__()
         self.__node: Node = node
@@ -77,6 +80,7 @@ class NodeVisitor(VisitorBase, ABC):
     """Provides a basic implementation of a visitor for NodeElement
        implementations.
     """
+
     def visit(self, visitable: VisitableElement) -> None:
         if isinstance(visitable, NodeElement):
             node_element: NodeElement = cast(NodeElement, visitable)

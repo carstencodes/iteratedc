@@ -78,6 +78,7 @@ def _iterate_over_current_item(
 class Node:
     """Implementation of a tree node for dataclass members.
     """
+
     def __init__(
         self,
         value: _FieldValueWithMetaData,
@@ -156,6 +157,7 @@ class Node:
 class Tree:
     """Implements a tree as a sequence of nodes.
     """
+
     def __init__(self, root: Node) -> None:
         self.__root = root
 
