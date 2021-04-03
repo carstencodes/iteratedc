@@ -56,19 +56,20 @@ _DataClassNodeType = Union[_RootNode, DataClassType]
 class IterationMode(Enum):
     """Represents the mode of operation to use for tree traversal.
     """
-    BreadthFirstSearch = auto()
+
+    BREAD_FIRST_SEARCH = auto()
     """Use BFS tree iteration
     """
-    PreOrderDepthFirstSearch = auto()
+    PRE_ORDER_DEPTH_FIRST_SEARCH = auto()
     """Use Pre-Order DFS tree iteration.
     """
-    PostOrderDepthFirstSearch = auto()
+    POST_ORDER_DEPTH_FIRST_SEARCH = auto()
     """Use Post-Order DFS tree iteration.
     """
-    ReversePreOrderDepthFirstSearch = auto()
+    REVERSE_PRE_ORDER_DEPTH_FIRST_SEARCH = auto()
     """Use reverse Pre-Order DFS tree iteration.
     """
-    ReversePostOrderDepthFirstSearch = auto()
+    REVERSE_POST_ORDER_DEPTH_FIRST_SEARCH = auto()
     """Use reverse Post-Order DFS tree iteration.
     """
 
@@ -207,6 +208,7 @@ class _PreOrderDepthFirstDataClassIterator(_DataClassIteratorBase):
 class DataClassIterable(Generic[DataClassType]):
     """Class transforming a dataclass into an iterable of NodeElements
     """
+
     def __init__(self, mode: IterationMode, *args: DataClassType) -> None:
         super().__init__()
 
@@ -227,17 +229,19 @@ class DataClassIterable(Generic[DataClassType]):
     def __iter__(self) -> Iterator[NodeElement]:
         iterator: _DataClassIteratorBase
 
-        if IterationMode.BreadthFirstSearch == self.__mode:
+        if IterationMode.BREAD_FIRST_SEARCH == self.__mode:
             iterator = _BreathFirstDataClassIterator(self.__tree)
-        elif IterationMode.PostOrderDepthFirstSearch == self.__mode:
+        elif IterationMode.POST_ORDER_DEPTH_FIRST_SEARCH == self.__mode:
             iterator = _PostOrderDepthFirstDataClassIterator(
                 self.__tree, False
             )
-        elif IterationMode.PreOrderDepthFirstSearch == self.__mode:
+        elif IterationMode.PRE_ORDER_DEPTH_FIRST_SEARCH == self.__mode:
             iterator = _PreOrderDepthFirstDataClassIterator(self.__tree, False)
-        elif IterationMode.ReversePostOrderDepthFirstSearch == self.__mode:
+        elif (
+            IterationMode.REVERSE_POST_ORDER_DEPTH_FIRST_SEARCH == self.__mode
+        ):
             iterator = _PostOrderDepthFirstDataClassIterator(self.__tree, True)
-        elif IterationMode.ReversePreOrderDepthFirstSearch == self.__mode:
+        elif IterationMode.REVERSE_PRE_ORDER_DEPTH_FIRST_SEARCH == self.__mode:
             iterator = _PreOrderDepthFirstDataClassIterator(self.__tree, True)
         else:
             raise NotImplementedError(self.__mode)  # Heuristically unreachable

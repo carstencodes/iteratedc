@@ -21,7 +21,7 @@ from .iterators import DataClassIterable, IterationMode
 
 
 def iterate_over_data_class(
-    dataclass: Any, mode: IterationMode = IterationMode.BreadthFirstSearch
+    dataclass: Any, mode: IterationMode = IterationMode.BREAD_FIRST_SEARCH
 ) -> Iterator[NodeElement]:
     """Creates an iterator over the specified dataclass returning all
        dataclasses in the hierarchy using the specified tree iteration mode.
@@ -29,7 +29,7 @@ def iterate_over_data_class(
     Args:
         dataclass (Any): The value to traverse. Must be a dataclass.
         mode (IterationMode, optional): The mode of operation to use for iteration.
-                                        Defaults to IterationMode.BreadthFirstSearch.
+                                        Defaults to IterationMode.BREAD_FIRST_SEARCH.
 
     Returns:
         Iterator[NodeElement]: The iterator over the sequence of NodeElements
@@ -42,7 +42,7 @@ def iterate_over_data_class(
 
 def iterate_over_data_classes(
     dataclasses: Iterable[Any],
-    mode: IterationMode = IterationMode.BreadthFirstSearch,
+    mode: IterationMode = IterationMode.BREAD_FIRST_SEARCH,
 ) -> Iterator[NodeElement]:
     """Creates an iterator over the specified dataclasses returning all
        dataclasses in the hierarchy using the specified tree iteration mode.
@@ -51,7 +51,7 @@ def iterate_over_data_classes(
         dataclass (Iterable[Any]): The values to traverse. Any instance
                                    must be a dataclass.
         mode (IterationMode, optional): The mode of operation to use for
-                                        iteration. Defaults to IterationMode.BreadthFirstSearch.
+                                        iteration. Defaults to IterationMode.BREAD_FIRST_SEARCH.
 
     Returns:
         Iterator[NodeElement]: The iterator over the sequence of NodeElements
@@ -63,7 +63,7 @@ def iterate_over_data_classes(
 
 
 def flatten_hierarchy(
-    dataclass: Any, mode: IterationMode = IterationMode.BreadthFirstSearch
+    dataclass: Any, mode: IterationMode = IterationMode.BREAD_FIRST_SEARCH
 ) -> List[NodeElement]:
     """Creates a list of NodeElements from the specified dataclass ordered for
        a tree traversal using the specified tree iteration mode.
@@ -71,7 +71,7 @@ def flatten_hierarchy(
     Args:
         dataclass (Any): The value to traverse. Must be a data class.
         mode (IterationMode, optional): The mode of traversal. Defaults
-                                        to IterationMode.BreadthFirstSearch.
+                                        to IterationMode.BREAD_FIRST_SEARCH.
 
     Returns:
         List[NodeElement]: The list of NodeElements.
