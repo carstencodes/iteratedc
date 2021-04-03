@@ -10,7 +10,7 @@
 
 from setuptools import setup, find_packages
 
-__VERSION__ = "0.6.1"
+__VERSION__ = "0.6.2"
 
 long_description: str = ""
 with open("README.md", "r") as read_me_file:
